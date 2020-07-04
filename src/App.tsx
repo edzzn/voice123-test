@@ -1,11 +1,14 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
 import Layout from './components/Layout';
+import Search from './components/Search';
+import VoiceArtists from './components/VoiceArtists';
 
 function App() {
   return (
     <Layout>
-      <Button variant='contained'>Test-button</Button>
+      <Search placeholder='Search for a Voice Artists' value='' />
+      <VoiceArtists />
+      {/* <Pagination />  */}
     </Layout>
   );
 }
