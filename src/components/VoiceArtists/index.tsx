@@ -1,8 +1,7 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Paper, IconButton, InputBase, Grid } from '@material-ui/core';
-import MediaControlCard from './componets/VoiceArtistCard';
-// import VoiceArtistsIcon from '@material-ui/icons/VoiceArtists';
+import { Grid } from '@material-ui/core';
+import VoiceArtistCard from './componets/VoiceArtistCard';
 
 export interface VoiceArtistSample {
   name: string;
@@ -40,7 +39,10 @@ function VoiceArtists(props: VoiceArtistsProps) {
 
   const renderVoiceArtists = () => {
     return props.voiceArtists.map((voiceArtist) => (
-      <MediaControlCard voiceArtist={voiceArtist} />
+      <VoiceArtistCard
+        voiceArtist={voiceArtist}
+        searchTerm={props.searchTerm}
+      />
     ));
   };
 

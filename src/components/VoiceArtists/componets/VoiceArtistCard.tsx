@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import { VoiceArtist } from '..';
 import AudioPlayer from 'material-ui-audio-player';
+import HighlightedText from './highlighedText';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,23 +45,23 @@ const useStyles = makeStyles((theme: Theme) =>
       color: 'inherit',
       textDecoration: 'inherit',
     },
+    textHighlight: {
+      backgroundColor: 'yellow',
+    },
   })
 );
 
-export interface MediaControlCardProps {
+export interface VoiceArtistCardProps {
   voiceArtist: VoiceArtist;
+  searchTerm?: string;
 }
 
-function truncateText(text: string, length: number): string {
-  if (text.length > length) return text.substring(0, length) + '...';
-  else return text;
-}
-
-function MediaControlCard(props: MediaControlCardProps) {
+function VoiceArtistCard(props: VoiceArtistCardProps) {
   const classes = useStyles();
 
   return (
     <Grid item md={6}>
+      {/* <p>{JSON.stringify(props.voiceArtist)}</p> */}
       <Card className={classes.root}>
         <CardMedia
           className={classes.profileImage}
@@ -78,10 +79,10 @@ function MediaControlCard(props: MediaControlCardProps) {
                 {props.voiceArtist.name}
               </a>
             </Typography>
-
-            <Typography variant='body1' color='textSecondary'>
-              {truncateText(props.voiceArtist.summary, 200)}
-            </Typography>
+            <HighlightedText
+              text={props.voiceArtist.summary}
+              searchTerm={props.searchTerm ? props.searchTerm : ''}
+            />
           </CardContent>
           <Divider />
           <div className={classes.controls}>
@@ -97,4 +98,4 @@ function MediaControlCard(props: MediaControlCardProps) {
   );
 }
 
-export default MediaControlCard;
+export default VoiceArtistCard;
