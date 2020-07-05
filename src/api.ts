@@ -20,7 +20,7 @@ export function parseSearchAPIResponse(
       additionalDetails: p['additional_details'],
       relevantSample: {
         name: p['relevant_sample']['name'],
-        file: p['relevant_sample']['file'],
+        file: 'https://voice123.com/mp3/' + p['relevant_sample']['file'],
       },
     })
   );

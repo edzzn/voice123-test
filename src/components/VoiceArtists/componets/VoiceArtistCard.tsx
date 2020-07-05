@@ -4,14 +4,12 @@ import {
   Grid,
   Divider,
   Typography,
-  IconButton,
   CardContent,
   Card,
   CardMedia,
-  Link,
 } from '@material-ui/core';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { VoiceArtist } from '..';
+import AudioPlayer from 'material-ui-audio-player';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,9 +29,9 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 200,
     },
     controls: {
-      display: 'flex',
-      alignItems: 'center',
-      paddingLeft: theme.spacing(1),
+      minHeight: 60,
+      marginTop: 12,
+      marginLeft: 15,
     },
     playIcon: {
       height: 38,
@@ -87,13 +85,11 @@ function MediaControlCard(props: MediaControlCardProps) {
           </CardContent>
           <Divider />
           <div className={classes.controls}>
-            <IconButton aria-label='play/pause'>
-              <PlayArrowIcon className={classes.playIcon} />
-            </IconButton>
-
-            <Typography variant='body2' color='textSecondary'>
-              {props.voiceArtist.relevantSample.name}
-            </Typography>
+            <AudioPlayer
+              elevation={0}
+              variation='primary'
+              src={props.voiceArtist.relevantSample.file}
+            />
           </div>
         </div>
       </Card>
