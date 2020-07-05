@@ -4,6 +4,7 @@ import Search from './components/Search';
 import VoiceArtists, { VoiceArtist } from './components/VoiceArtists';
 import SearchAPI, { parseSearchAPIResponse, getPaginationInfo } from './api';
 import Pagination from './components/Pagination';
+import EmptySearchResult from './components/EmptySearchResult';
 
 export interface PaginationInfo {
   currentPage: number;
@@ -60,14 +61,22 @@ class App extends React.Component<AppProps, AppState> {
           placeholder='Search for a Voice Artists'
           onSearchClicked={this.onSearch}
         />
-        <VoiceArtists
-          voiceArtists={this.state.voiceArtists}
-          searchTerm={this.state.paginationInfo.searchTerm}
-        />
-        <Pagination
-          paginationInfo={this.state.paginationInfo}
-          onPageChange={this.onHandlePagination}
-        />
+        {this.state.voiceArtists.length !== 0 ? (
+          <>
+            <VoiceArtists
+              voiceArtists={this.state.voiceArtists}
+              searchTerm={this.state.paginationInfo.searchTerm}
+            />
+            <Pagination
+              paginationInfo={this.state.paginationInfo}
+              onPageChange={this.onHandlePagination}
+            />
+          </>
+        ) : (
+          <EmptySearchResult
+            searchTerm={this.state.paginationInfo.searchTerm}
+          />
+        )}
       </Layout>
     );
   }

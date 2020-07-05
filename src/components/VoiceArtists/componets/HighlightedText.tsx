@@ -38,6 +38,7 @@ function HighlightedText(props: HighlightedTextProps) {
   const classes = useStyles();
 
   if (
+    props.text === undefined ||
     props.searchTerm.trim() === '' ||
     !props.text.includes(props.searchTerm)
   ) {

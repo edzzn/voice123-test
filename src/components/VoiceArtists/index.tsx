@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import VoiceArtistCard from './componets/VoiceArtistCard';
+import EmptySearchResult from '../EmptySearchResult';
 
 export interface VoiceArtistSample {
   name: string;

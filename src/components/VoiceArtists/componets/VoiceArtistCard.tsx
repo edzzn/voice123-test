@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { VoiceArtist } from '..';
 import AudioPlayer from 'material-ui-audio-player';
-import HighlightedText from './highlighedText';
+import HighlightedText from './HighlightedText';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -58,7 +58,7 @@ export interface VoiceArtistCardProps {
 
 function VoiceArtistCard(props: VoiceArtistCardProps) {
   const classes = useStyles();
-
+  console.log(props.voiceArtist.relevantSample.file);
   return (
     <Grid item md={6}>
       <Card className={classes.root}>
