@@ -24,7 +24,6 @@ function getFirstMatchingParagraph(
   summary: string,
   searchTerm: string = ''
 ): string {
-  console.log(searchTerm);
   let paragraphs = summary.split('\n');
   for (let i = 0; i < paragraphs.length; i++) {
     const paragraph = paragraphs[i];

@@ -1,5 +1,4 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import { PaginationInfo } from '../App';
@@ -21,17 +20,15 @@ const useStyles = makeStyles((theme) =>
 );
 
 function PaginationComponent(props: PaginationProps) {
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handleChange = (_e: any, value: number) => {
     props.onPageChange(value);
   };
 
   const classes = useStyles();
-  console.log(props.paginationInfo.currentPage === 1);
   return (
     <div className={classes.root}>
       <Pagination
         count={props.paginationInfo.totalPages}
-        // page={1}
         page={props.paginationInfo.currentPage}
         onChange={handleChange}
       />

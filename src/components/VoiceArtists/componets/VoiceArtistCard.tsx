@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
@@ -61,7 +61,6 @@ function VoiceArtistCard(props: VoiceArtistCardProps) {
 
   return (
     <Grid item md={6}>
-      {/* <p>{JSON.stringify(props.voiceArtist)}</p> */}
       <Card className={classes.root}>
         <CardMedia
           className={classes.profileImage}
